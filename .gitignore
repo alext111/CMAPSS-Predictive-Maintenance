@@ -1,0 +1,17 @@
+# Jupyter
+.ipynb_checkpoints/
+
+# Environments
+.env
+*.env
+/env/
+/venv/
+
+# Data - raw data is large, track it separately if needed
+CMAPSSData/
+
+# Processed data, can be regenerated from notebook
+data/
+
+# VS Code
+.vscode/

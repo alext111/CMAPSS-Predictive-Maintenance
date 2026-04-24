@@ -32,17 +32,28 @@ CMAPSS-Predictive-Maintenance/
 ├── README.md
 ├── requirements.txt
 ├── notebooks/
-│   └── 01_eda.ipynb
+│   ├── 01_eda.ipynb
+|   └── 02_baseline_model.ipynb
 ├── data/
+├── models/
+├── results/
 └── CMAPSSData/
 ```
 
 ## Methodology
 
-### Exploratory Data Analysis (Complete)
+### Exploratory Data Analysis
 - Loaded and inspected FD001 training data
 - Calculated RUL directly from cycle data
 - Removed 7 zero-variance sensors through variance filtering
 - Analyzed degradation trends across single and multiple engines
 - Performed correlation analysis, removing sensor_14 (r=0.96 with sensor_9)
 - Applied piecewise linear RUL cap at 125 cycles to focus model training on the relevant degradation zone
+
+### XGBoost Baseline
+- Loaded cleaned data from the initial exploratory data analysis
+- Engineered time-based features (rolling statistics, lag features)
+- Prepared train/test split
+- Trained XGBoost regressor
+- Evaluated performance and analyzed results
+- Calculated score based on NASA scoring function

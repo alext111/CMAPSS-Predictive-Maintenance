@@ -10,8 +10,12 @@
 # Data - raw data is large, track it separately if needed
 CMAPSSData/
 
-# Processed data, can be regenerated from notebook
+# Processed data and results, can be regenerated from notebooks
 data/
+results/
+
+# Created models, can be regenerated from notebooks
+models/
 
 # VS Code
 .vscode/

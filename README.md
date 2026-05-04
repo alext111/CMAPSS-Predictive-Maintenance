@@ -33,7 +33,8 @@ CMAPSS-Predictive-Maintenance/
 ├── requirements.txt
 ├── notebooks/
 │   ├── 01_eda.ipynb
-|   └── 02_baseline_model.ipynb
+|   ├── 02_baseline_model.ipynb
+|   └── 03_lstm_model.ipynb
 ├── data/
 ├── models/
 ├── results/
@@ -51,9 +52,16 @@ CMAPSS-Predictive-Maintenance/
 - Applied piecewise linear RUL cap at 125 cycles to focus model training on the relevant degradation zone
 
 ### XGBoost Baseline
-- Loaded cleaned data from the initial exploratory data analysis
+- Loaded cleaned data from the initial exploratory data analysis (EDA)
 - Engineered time-based features (rolling statistics, lag features)
 - Prepared train/test split
 - Trained XGBoost regressor
 - Evaluated performance and analyzed results
 - Calculated score based on NASA scoring function
+
+### LSTM Model
+- Loaded cleaned data from EDA
+- Prepared 3D sequence arrays using a sliding window approach
+- Normalized features
+- Built and trained LSTM
+- Evaluated against XGBoost baseline using identical metrics

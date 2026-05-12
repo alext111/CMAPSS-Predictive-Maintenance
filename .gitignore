@@ -19,3 +19,6 @@ models/
 
 # VS Code
 .vscode/
+
+# Streamlit
+.streamlit/

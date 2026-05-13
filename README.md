@@ -104,7 +104,6 @@ The dashboard requires the trained models in the `models/` directory and results
 
 ## References
 
-- Saxena, A., Goebel, K., Simon, D., & Eklund, N. (2008). Damage Propagation Modeling for Aircraft Engine Run-to-Failure Simulation. 
-IEEE International Conference on Prognostics and Health Management.
+- A. Saxena, K. Goebel, D. Simon, and N. Eklund, Damage Propagation Modeling for Aircraft Engine Run-to-Failure Simulation, in the Proceedings of the Ist International Conference on Prognostics and Health Management (PHM08), Denver CO, Oct 2008.
 - NASA CMAPSS Dataset: https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data
 

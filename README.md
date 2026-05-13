@@ -1,5 +1,7 @@
 # CMAPSS Turbofan Engine Predictive Maintenance
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://cmapss-predictive-maintenance.streamlit.app/)
+
 A machine learning project to predict the Remaining Useful Life (RUL) of turbofan jet engines using NASA's CMAPSS dataset. 
 Built as a portfolio project demonstrating predictive maintenance methodology.
 

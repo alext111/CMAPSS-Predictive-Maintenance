@@ -31,8 +31,10 @@ Place the extracted files in a `CMAPSSData/` folder in the project root.
 CMAPSS-Predictive-Maintenance/
 ├── README.md
 ├── requirements.txt
+├── dashboard/
+|   └── app.py
 ├── notebooks/
-│   ├── 01_eda.ipynb
+|   ├── 01_eda.ipynb
 |   ├── 02_baseline_model.ipynb
 |   └── 03_lstm_model.ipynb
 ├── data/
@@ -65,3 +67,44 @@ CMAPSS-Predictive-Maintenance/
 - Normalized features
 - Built and trained LSTM
 - Evaluated against XGBoost baseline using identical metrics
+- Implemented uncertainty quantification for predictions
+
+### Streamlit Dashboard
+- Interactive engine data explorer with sensor degradation visualization
+- Side-by-side XGBoost and LSTM predictions
+- Confidence intervals at 80/90/95% coverage levels
+- Risk classification based on confidence interval lower bound
+- Adjustable warning and critical maintenance thresholds
+
+## Setup
+
+**Requirements:** Python 3.11, conda
+
+```bash
+# Create and activate environment
+conda create -n predictive_maintenance python=3.11
+conda activate predictive_maintenance
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+**To run the notebooks:**
+1. Download the CMAPSS dataset and place contents in `CMAPSSData/`
+2. Run notebooks in order: 01 → 02 → 03
+3. Models and results are saved automatically
+
+**To locally run the dashboard:**
+```bash
+cd dashboard
+streamlit run app.py
+```
+
+The dashboard requires the trained models in the `models/` directory and results in the `results/` directory. Run all notebooks in order before launching the dashboard.
+
+## References
+
+- Saxena, A., Goebel, K., Simon, D., & Eklund, N. (2008). Damage Propagation Modeling for Aircraft Engine Run-to-Failure Simulation. 
+IEEE International Conference on Prognostics and Health Management.
+- NASA CMAPSS Dataset: https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data
+

@@ -7,7 +7,15 @@ import torch.nn as nn
 import joblib
 import json
 import warnings
+import os
 warnings.filterwarnings('ignore')
+
+# Set up paths
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(APP_DIR)
+
+def root_path(*args):
+    return os.path.join(ROOT_DIR, *args)
 
 # Page configuration
 st.set_page_config(
@@ -67,7 +75,7 @@ def load_data():
 
     # Load training data
     df_train = pd.read_csv(
-        '../CMAPSSData/train_FD001.txt',
+        root_path('CMAPSSData', 'train_FD001.txt'),
         sep=r'\s+', header=None, names=column_names
     )
     df_train = df_train.drop(columns=sensors_to_drop)
@@ -83,7 +91,7 @@ def load_data():
 
     # Load test data
     df_test = pd.read_csv(
-        '../CMAPSSData/test_FD001.txt',
+        root_path('CMAPSSData', 'test_FD001.txt'),
         sep=r'\s+', header=None, names=column_names
     )
     df_test = df_test.drop(columns=sensors_to_drop)
@@ -91,7 +99,7 @@ def load_data():
 
     # Load true RUL labels
     df_rul = pd.read_csv(
-        '../CMAPSSData/RUL_FD001.txt',
+        root_path('CMAPSSData', 'RUL_FD001.txt'),
         header=None, names=['RUL']
     )
     df_rul['engine_id'] = df_rul.index + 1
@@ -103,11 +111,11 @@ def load_data():
 def load_models():
     """Load trained models and supporting files."""
     # XGBoost model
-    xgb_model = joblib.load('../models/xgboost_baseline.pkl')
+    xgb_model = joblib.load(root_path('models', 'xgboost_baseline.pkl'))
 
     # LSTM model
     device = torch.device('cpu')  # use CPU for deployment
-    checkpoint = torch.load('../models/lstm_model.pt', map_location=device)
+    checkpoint = torch.load(root_path('models', 'lstm_model.pt'), map_location=device)
     config = checkpoint['model_config']
     lstm_model = LSTMModel(
         input_size=config['input_size'],
@@ -119,10 +127,10 @@ def load_models():
     lstm_model.eval()
 
     # Scaler
-    scaler = joblib.load('../models/lstm_scaler.pkl')
+    scaler = joblib.load(root_path('models', 'lstm_scaler.pkl'))
 
     # Conformal prediction parameters
-    with open('../models/conformal_params.json') as f:
+    with open(root_path('models', 'conformal_params.json')) as f:
         conformal_params = json.load(f)
 
     return xgb_model, lstm_model, scaler, conformal_params, device
@@ -164,7 +172,7 @@ with tab_overview:
     st.header("Project Overview")
 
     # Load model comparison metrics from saved file
-    metrics_df = pd.read_csv('../results/model_comparison.csv')
+    metrics_df = pd.read_csv(root_path('results', 'model_comparison.csv'))
     xgb_row = metrics_df[metrics_df['model'] == 'XGBoost Tuned'].iloc[0]
     lstm_row = metrics_df[metrics_df['model'] == 'LSTM'].iloc[0]
 

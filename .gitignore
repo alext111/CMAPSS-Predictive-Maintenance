@@ -7,16 +7,6 @@
 /env/
 /venv/
 
-# Data - raw data is large, track it separately if needed
-CMAPSSData/
-
-# Processed data and results, can be regenerated from notebooks
-data/
-results/
-
-# Created models, can be regenerated from notebooks
-models/
-
 # VS Code
 .vscode/
 

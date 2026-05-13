@@ -1,0 +1,3 @@
+model,rmse,mae,nasa_score,rmse_pct_mean_rul,mae_pct_mean_rul,late_predictions,early_predictions
+XGBoost Tuned,14.8158,11.458,337.45,19.9,15.39,52,48
+LSTM,14.2527,10.2046,301.62,19.14,13.71,42,58

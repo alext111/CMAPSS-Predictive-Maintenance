@@ -20,12 +20,9 @@ A maintenance engineer can use this output to schedule intervention at the right
 The dataset simulates turbofan engine degradation under different operating conditions and fault modes. 
 Each engine runs from a healthy state until failure with 3 operational setting variables and 21 sensor readings recorded per cycle.
 
-This project currently uses the FD001 subset which contains a single fault mode, single operating condition as a clean baseline 
-before extending to the more complex FD003/FD004 subsets.
+This project currently uses the FD001 subset which contains a single fault mode, single operating condition as a clean baseline before extending to the more complex FD003/FD004 subsets.
 
 **Download:** https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data
-
-Place the extracted files in a `CMAPSSData/` folder in the project root.
 
 ## Project Structure
 
@@ -92,9 +89,8 @@ pip install -r requirements.txt
 ```
 
 **To run the notebooks:**
-1. Download the CMAPSS dataset and place contents in `CMAPSSData/`
-2. Run notebooks in order: 01 → 02 → 03
-3. Models and results are saved automatically
+1. Run notebooks in order: 01 → 02 → 03
+2. Models and results are saved automatically
 
 **To locally run the dashboard:**
 ```bash

@@ -5,6 +5,8 @@
 A machine learning project to predict the Remaining Useful Life (RUL) of turbofan jet engines using NASA's CMAPSS dataset. 
 Built as a portfolio project demonstrating predictive maintenance methodology.
 
+Note: The app may take 30-60 seconds to load on first visit if it has been inactive. This is normal for free-tier hosting.
+
 ## Background
 
 Predictive maintenance aims to predict equipment failure before it occurs using sensor data, enabling maintenance to be scheduled only when needed. 
